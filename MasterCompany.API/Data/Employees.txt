@@ -1,0 +1,119 @@
+[
+  {
+    "Name": "Carlos",
+    "LastName": "Medina",
+    "Document": "22500210203",
+    "Salary": 125000,
+    "Gender": "M",
+    "Position": "TI Manager",
+    "StartDate": "2010-05-20"
+  },
+  {
+    "Name": "Daniel",
+    "LastName": "Martinez",
+    "Document": "22500210204",
+    "Salary": 135000,
+    "Gender": "M",
+    "Position": "TI Supervisor",
+    "StartDate": "2012-05-20"
+  },
+  {
+    "Name": "Maria",
+    "LastName": "Perez",
+    "Document": "22500210204",
+    "Salary": 65000,
+    "Gender": "F",
+    "Position": "Database administrator",
+    "StartDate": "2014-05-20"
+  },
+  {
+    "Name": "Jhon",
+    "LastName": "Lennon",
+    "Document": "22500210205",
+    "Salary": 58000,
+    "Gender": "M",
+    "Position": "Junior Developer",
+    "StartDate": "2018-05-20"
+  },
+  {
+    "Name": "Josefina",
+    "LastName": "Rosado",
+    "Document": "22500210289",
+    "Salary": 11000,
+    "Gender": "F",
+    "Position": "Quality Assurance",
+    "StartDate": "2009-09-10"
+  },
+  {
+    "Name": "Peter",
+    "LastName": "Alonso",
+    "Document": "22500210223",
+    "Salary": 105000,
+    "Gender": "M",
+    "Position": "Senior Developer",
+    "StartDate": "2015-05-20"
+  },
+  {
+    "Name": "Danilo",
+    "LastName": "Medina",
+    "Document": "22500210203",
+    "Salary": 125000,
+    "Gender": "M",
+    "Position": "TI Manager",
+    "StartDate": "2010-05-20"
+  },
+  {
+    "Name": "Josefina",
+    "LastName": "Rosado",
+    "Document": "22500210289",
+    "Salary": 11000,
+    "Gender": "F",
+    "Position": "Quality Assurance",
+    "StartDate": "2009-09-10"
+  },
+  {
+    "Name": "Danilo",
+    "LastName": "Medina",
+    "Document": "22500210203",
+    "Salary": 125000,
+    "Gender": "M",
+    "Position": "TI Manager",
+    "StartDate": "2010-05-20"
+  },
+  {
+    "Name": "Josefina",
+    "LastName": "Rosado",
+    "Document": "22500210289",
+    "Salary": 11000,
+    "Gender": "F",
+    "Position": "Quality Assurance",
+    "StartDate": "2009-09-10"
+  },
+  {
+    "Name": "Rafael",
+    "LastName": "Martines",
+    "Document": "22556210203",
+    "Salary": 80000,
+    "Gender": "M",
+    "Position": "Mid Developer",
+    "StartDate": "2014-05-901"
+  },
+  {
+    "Name": "Laura",
+    "LastName": "Castillo",
+    "Document": "22500217803",
+    "Salary": 100000,
+    "Gender": "F",
+    "Position": "Sub Gerente de TI",
+    "StartDate": "2009-05-20"
+  },
+  {
+    "Name": "Manuel",
+    "LastName": "Baez",
+    "Document": "22500910203",
+    "Salary": 75000,
+    "Gender": "M",
+    "Position": "TI Support",
+    "StartDate": "2019-05-20"
+  }
+]
