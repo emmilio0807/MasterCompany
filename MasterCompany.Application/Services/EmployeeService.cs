@@ -29,7 +29,6 @@ namespace MasterCompany.Application.Services
                 {
                     employee.Salary += employee.Salary * 0.30m;
                 }
-
             }
             return employees;
         }
