@@ -5,11 +5,19 @@ using MasterCompany.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngular",
+        policy => policy.WithOrigins("http://localhost:4200")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod());
+});
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Inyección de dependencias
+// Inyecciï¿½n de dependencias
 builder.Services.AddScoped<IEmployeeData, EmployeeData>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddCors(options =>
@@ -23,6 +31,7 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+app.UseCors("AllowAngular");
 
 app.UseCors("AllowAngular");
 
