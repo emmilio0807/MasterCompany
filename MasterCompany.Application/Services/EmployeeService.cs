@@ -34,7 +34,6 @@ namespace MasterCompany.Application.Services
         {
             return _data.GetAll();
         }
-
         public IEnumerable<Employee> GetBySalary(decimal min, decimal max)
         {
             var employees = _data.GetAll();

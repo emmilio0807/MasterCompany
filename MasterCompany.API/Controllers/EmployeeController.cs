@@ -53,8 +53,16 @@ namespace MasterCompany.API.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] Employee employee) /// Accept an Employee object from the request body
         {
-            _service.Add(employee); /// Call the service layer to add the new employee
-            return Ok("Employee added successfully");
+            try
+            {
+                _service.Add(employee); /// Call the service layer to add the new employee
+                return Ok("Empleado registrado exitosamente.");
+            }
+            catch (InvalidOperationException ex) /// If the service layer throws an ArgumentException, return a 400 Bad Request response with the exception message
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
         [HttpDelete("{document}")]

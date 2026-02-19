@@ -20,8 +20,13 @@ namespace MasterCompany.Infrastructure.Data
         }
         
         public void Add(Employee newEmployee)
-        {/// Retrieve the current list of employees by calling the GetAll method and converting the result to a list. Add the new employee to this list. Serialize the updated list of employees back to JSON format and write it to the file at the specified path, effectively updating the stored employee data with the new entry.
+        {/// Retrieve the current list of employees by calling the GetAll method and converting the result to a list. Use the Any method to check if there is already an employee in the list with the same Document property as the newEmployee being added. If such an employee exists, throw an InvalidOperationException with a message indicating that an employee with the specified document already exists. If no such employee exists, add the newEmployee to the list of employees, serialize the updated list back to JSON format, and write it to the file at the specified path.
             var employees = GetAll().ToList();
+            if (employees.Any(emp => emp.Document == newEmployee.Document))
+            {
+                throw new InvalidOperationException("Ya existe un empleado con el documento especificado.");
+            }
+
             employees.Add(newEmployee);
             File.WriteAllText(_filePath, JsonSerializer.Serialize(employees));
         }
