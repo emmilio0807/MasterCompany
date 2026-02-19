@@ -1,5 +1,6 @@
 ﻿using MasterCompany.Application.Interfaces;
 using MasterCompany.Domain.Models;
+using System.Globalization;
 using System.Text.Json;
 
 namespace MasterCompany.Infrastructure.Data 
@@ -20,11 +21,32 @@ namespace MasterCompany.Infrastructure.Data
         }
         
         public void Add(Employee newEmployee)
-        {/// Retrieve the current list of employees by calling the GetAll method and converting the result to a list. Use the Any method to check if there is already an employee in the list with the same Document property as the newEmployee being added. If such an employee exists, throw an InvalidOperationException with a message indicating that an employee with the specified document already exists. If no such employee exists, add the newEmployee to the list of employees, serialize the updated list back to JSON format, and write it to the file at the specified path.
+        {   
+            if (newEmployee == null)
+                throw new ArgumentNullException(nameof(newEmployee));
+            
             var employees = GetAll().ToList();
+
+            if (newEmployee.Salary < 0)
+            {
+                throw new InvalidOperationException("El salario no puede ser negativo.");
+            }
+            if (string.IsNullOrWhiteSpace(newEmployee.Document))
+            {
+                throw new InvalidOperationException("Documento inválido.");
+            }
+            if (string.IsNullOrWhiteSpace(newEmployee.Name))
+            {
+                throw new InvalidOperationException("Nombre inválido.");
+            }
+            if (string.IsNullOrWhiteSpace(newEmployee.LastName))
+            {
+                throw new InvalidOperationException("Apellido inválido.");
+            }
+
             if (employees.Any(emp => emp.Document == newEmployee.Document))
             {
-                throw new InvalidOperationException("Ya existe un empleado con el documento especificado.");
+                throw new InvalidOperationException("Ya existe un empleado con este documento.");
             }
 
             employees.Add(newEmployee);

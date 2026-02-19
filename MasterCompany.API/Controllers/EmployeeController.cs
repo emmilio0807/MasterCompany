@@ -51,7 +51,7 @@ namespace MasterCompany.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody] Employee employee) /// Accept an Employee object from the request body
+        public IActionResult Add([FromBody] Employee employee) /// Accept an Employee object from the request body and attempt to add it to the system using the service layer
         {
             try
             {
@@ -70,9 +70,9 @@ namespace MasterCompany.API.Controllers
         {
             var result = _service.DeleteByDocument(document);
             if (!result) /// If the delete operation was not successful, return a 404 Not Found response
-                return NotFound("Employee not found");
+                return NotFound("Empleado no encontrado.");
 
-            return Ok("Employee deleted successfully");
+            return Ok("Empleado eliminado exitosamente.");
         }
     }
 } 

@@ -2,7 +2,7 @@
 
 namespace MasterCompany.Application.Interfaces
 {
-    public interface IEmployeeService
+    public interface IEmployeeService /// This interface defines the contract for employee-related operations, including retrieving all employees, getting distinct employees, filtering employees by salary range, adjusting salaries, calculating
     {
         IEnumerable<Employee> GetAll();
         IEnumerable<Employee> GetDistinct();
