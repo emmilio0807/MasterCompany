@@ -1,9 +1,8 @@
-using MasterCompany.Application.Interfaces;
-using MasterCompany.Application.Services;
-using MasterCompany.Infrastructure.Data;
+using MasterCompany.Application.Interfaces; /// For IEmployeeService
+using MasterCompany.Application.Services; /// For EmployeeService
+using MasterCompany.Infrastructure.Data; /// For EmployeeData
 
-
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); 
 
 builder.Services.AddCors(options =>
 {
@@ -15,13 +14,14 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();   
 
-// Inyecci�n de dependencias
+
+/// Dependency Injection
 builder.Services.AddScoped<IEmployeeData, EmployeeData>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 
-var app = builder.Build();
+var app = builder.Build(); /// Build the application
 
 if (app.Environment.IsDevelopment())
 {
@@ -29,10 +29,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAngular");
-
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapControllers();
+app.UseCors("AllowAngular"); /// Enable CORS for Angular app
+app.MapControllers(); /// Map controller routes
 
 app.Run();

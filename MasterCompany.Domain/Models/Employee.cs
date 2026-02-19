@@ -19,8 +19,8 @@ namespace MasterCompany.Domain.Models
         [Required]
         public required string Position { get; set; }
         [Required]
-        [JsonConverter(typeof(SafeDateTimeConverter))]
-        public DateTime? StartDate { get; set; }
+        [JsonConverter(typeof(SafeDateTimeConverter))] /// This attribute ensures that the StartDate is correctly serialized and deserialized in JSON format.
+        public DateTime? StartDate { get; set; } /// The StartDate property is defined as a nullable DateTime (DateTime?) to allow for cases where the start date may not be provided or is unknown. This flexibility can be useful in scenarios where the employee's start date is optional or may not be applicable.
 
     }
 }
