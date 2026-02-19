@@ -21,7 +21,8 @@ namespace MasterCompany.Infrastructure.Data
         }
         
         public void Add(Employee newEmployee)
-        {   
+        {/// Check if the newEmployee parameter is null. If it is null, throw an ArgumentNullException to indicate that a valid Employee object must be provided for the add operation to proceed. 
+         ///This validation step helps prevent potential issues that could arise from attempting to add a null employee to the system
             if (newEmployee == null)
                 throw new ArgumentNullException(nameof(newEmployee));
             
@@ -53,8 +54,9 @@ namespace MasterCompany.Infrastructure.Data
             File.WriteAllText(_filePath, JsonSerializer.Serialize(employees));
         }
         public bool DeleteByDocument(string document)
-        {
-            var employees = GetAll().ToList(); /// Retrieve the current list of employees by calling the GetAll method and converting the result to a list. Use the FirstOrDefault method to find the first employee in the list whose Document property matches the provided document parameter. If no such employee is found (i.e., toRemove is null), return false to indicate that the deletion was unsuccessful. If an employee is found, remove it from the list, serialize the updated list back to JSON format, and write it to the file at the specified path. Finally, return true to indicate that the deletion was successful.
+        {/// Retrieve the list of employees, find the employee with the specified document number, and if found, remove it from the list. 
+         /// If the employee is not found, return false to indicate that the deletion was unsuccessful. If the employee is successfully removed, serialize the updated list back to JSON format and write it to the file at the specified path, then return true to indicate that the deletion was successful.
+            var employees = GetAll().ToList();
             var toRemove = employees.FirstOrDefault(emp => emp.Document == document);
             if (toRemove == null)
             {
